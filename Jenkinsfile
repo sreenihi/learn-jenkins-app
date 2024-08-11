@@ -61,6 +61,8 @@ pipeline {
   post {
     always {
       sh 'ls -la jest-results'
+      echo " File not found let we create "
+      sh 'touch jest-results'
       junit 'jest-results/junit.xml'
     }
   }

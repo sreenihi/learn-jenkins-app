@@ -30,8 +30,11 @@ pipeline {
 
             steps {
                 sh '''
-                    #test -f build/index.html
+                    # Ensure the test report directory exists
+                    mkdir -p jest-results
                     npm test
+                    # List the contents of the test report directory
+                    ls -la jest-results
                 '''
             }
         }
